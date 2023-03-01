@@ -12,12 +12,19 @@ public class WeatherApp {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a city ");
         String city = sc.next();
-        String weatherJson = null;
-        System.out.print(getWeatherData(city));
+        JSONObject WeatherJson = new JSONObject(getWeatherData(city));
 
-        //String weatherJson1 = Integer.toString(weatherJson.getJSONObject("current").getInt("humidity"));
-        //System.out.print(getWeatherData(city));
+        String humidity = Integer.toString(WeatherJson.getJSONObject("current").getInt("humidity"));
+        String temperature = Double.toString(WeatherJson.getJSONObject("current").getDouble("temp_c"));
+        String windVelocity = Double.toString(WeatherJson.getJSONObject("current").getDouble("wind_kph"));
+        String windDirection = WeatherJson.getJSONObject("current").getString("wind_dir");
+
+        System.out.println("humidity => " + getHumidity(humidity));
+        System.out.println("temperature => " + getTemperature(temperature) + " (c)");
+        System.out.println("wind velocity =>  " + getTemperature(windVelocity));
+        System.out.println("wind direction => " + windDirection);
 
     }
 
@@ -49,12 +56,14 @@ public class WeatherApp {
     // TODO: Write getTemperature function returns celsius temperature of city by given json string
     public static double getTemperature(String weatherJson){
         double answer = 0.0;
+        answer = Double.parseDouble(weatherJson);
         return answer;
     }
 
     // TODO: Write getHumidity function returns humidity percentage of city by given json string
     public static int getHumidity(String weatherJson){
         int answer = 0;
+        answer = Integer.parseInt(weatherJson);
         return answer;
     }
 }
