@@ -7,9 +7,17 @@ import java.util.Scanner;
 
 public class WeatherApp {
     // Copy your API-KEY here
-    public final static String apiKey = "API-KEY";
+    public final static String apiKey = "99e46d520a9e4865adb113457232702";
     // TODO: Write main function
     public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String city = sc.next();
+        String weatherJson = null;
+        System.out.print(getWeatherData(city));
+
+        //String weatherJson1 = Integer.toString(weatherJson.getJSONObject("current").getInt("humidity"));
+        //System.out.print(getWeatherData(city));
 
     }
 
