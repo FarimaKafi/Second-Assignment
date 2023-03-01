@@ -23,7 +23,7 @@ public class WeatherApp {
 
         System.out.println("humidity => " + getHumidity(humidity));
         System.out.println("temperature => " + getTemperature(temperature) + " (c)");
-        System.out.println("wind velocity =>  " + getTemperature(windVelocity));
+        System.out.println("wind velocity =>  " + getwindVelocity(windVelocity));
         System.out.println("wind direction => " + windDirection);
 
     }
@@ -55,6 +55,12 @@ public class WeatherApp {
 
     // TODO: Write getTemperature function returns celsius temperature of city by given json string
     public static double getTemperature(String weatherJson){
+        double answer = 0.0;
+        answer = Double.parseDouble(weatherJson);
+        return answer;
+    }
+
+    public static double getwindVelocity(String weatherJson){
         double answer = 0.0;
         answer = Double.parseDouble(weatherJson);
         return answer;
